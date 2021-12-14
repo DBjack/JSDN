@@ -4,7 +4,7 @@
 			<text class="gui-h5 gui-color-gray gui-bold">消息列表</text>
 		</view>
 		<view class="my-list">
-			<navigator class="gui-list-items">
+			<navigator class="gui-list-items" url="/pages/message/chat">
 				<view class="gui-list-image gui-relative">
 					<image class="gui-list-image" 
 					src="https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/15.png"></image>

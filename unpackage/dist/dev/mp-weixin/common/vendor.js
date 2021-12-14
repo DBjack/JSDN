@@ -2179,6 +2179,85 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ 182:
+/*!*******************************************************!*\
+  !*** E:/小程序/FW-MUSIC/GraceUI5/demoData/immessages.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var msgs = [
+{
+  group: 'group1',
+  uindex: '10001',
+  uname: '李晓燕',
+  contentType: 'txt',
+  uface: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/15.png',
+  content: '昨夜雨疏风骤，浓睡不消残酒。试问卷帘人，却道海棠依旧。知否，知否？应是绿肥红瘦。',
+  date: '2021.01.11 18:00' },
+
+{
+  group: 'group1',
+  uindex: '10000',
+  uname: '老兵张嘎',
+  contentType: 'txt',
+  uface: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/13.png',
+  content: '鼓掌 ...',
+  date: '2021.01.11 19:20' },
+
+{
+  group: 'group1',
+  uindex: '10001',
+  uname: '李晓燕',
+  contentType: 'img',
+  uface: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/15.png',
+  content: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/25.png',
+  date: '2021.01.11 19:22' },
+
+{
+  group: 'group1',
+  uindex: '10001',
+  uname: 'system',
+  contentType: 'system',
+  uface: '',
+  msg: '系统消息，GraceUI 欢迎您！',
+  date: '2021.01.11 19:22' },
+
+{
+  group: 'group1',
+  uindex: '10000',
+  uname: '老兵张嘎',
+  contentType: 'img',
+  uface: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/13.png',
+  content: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png',
+  date: '2021.01.11 19:25' },
+
+{
+  group: 'group1',
+  uindex: '10001',
+  uname: '李晓燕',
+  contentType: 'voice',
+  uface: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/15.png',
+  content: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3',
+  length: 23,
+  date: '一小时前' },
+
+{
+  group: 'group1',
+  uindex: '10000',
+  uname: '老兵张嘎',
+  contentType: 'voice',
+  uface: 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/13.png',
+  content: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-hello-uniapp/2cc220e0-c27a-11ea-9dfb-6da8e309e0d8.mp3',
+  length: 150,
+  date: '15 分钟前' }];
+
+
+module.exports = {
+  msgs: msgs };
+
+/***/ }),
+
 /***/ 2:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -2207,6 +2286,128 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ 208:
+/*!**********************************************!*\
+  !*** E:/小程序/FW-MUSIC/GraceUI5/js/checker.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+module.exports = {
+  error: '',
+  check: function check(dataBeCheck, rule) {
+    dataBeCheck = JSON.stringify(dataBeCheck);
+    var data = JSON.parse(dataBeCheck);
+    for (var i = 0; i < rule.length; i++) {
+      if (!rule[i].checkType) {return true;}
+      if (!rule[i].name) {return true;}
+      if (!rule[i].errorMsg) {return true;}
+      if (!data[rule[i].name] || data[rule[i].name] == '') {this.error = rule[i].errorMsg;return false;}
+      // 检查前去除内容的空格及换行
+      if (typeof data[rule[i].name] == 'string') {data[rule[i].name] = data[rule[i].name].replace(/\s/g, "");}
+      switch (rule[i].checkType) {
+        case 'string':
+          var reg = new RegExp('^.{' + rule[i].checkRule + '}$');
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'int':
+          var ruleArr = rule[i].checkRule.split(',');
+          if (rule.length < 2) {
+            ruleArr[0] = Number(ruleArr[0]) - 1;
+            ruleArr[1] = '';
+          } else {
+            ruleArr[0] = Number(ruleArr[0]) - 1;
+            ruleArr[1] = Number(ruleArr[1]) - 1;
+          }
+          var reg = new RegExp('^(-[1-9]|[1-9])[0-9]{' + ruleArr[0] + ',' + ruleArr[1] + '}$');
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;
+          break;
+        case 'between':
+          if (!this.isNumber(data[rule[i].name])) {
+            this.error = rule[i].errorMsg;
+            return false;
+          }
+          var minMax = rule[i].checkRule.split(',');
+          minMax[0] = Number(minMax[0]);
+          minMax[1] = Number(minMax[1]);
+          if (data[rule[i].name] > minMax[1] || data[rule[i].name] < minMax[0]) {
+            this.error = rule[i].errorMsg;
+            return false;
+          }
+          break;
+        case 'betweenD':
+          var reg = /^-?\d+$/;
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          var minMax = rule[i].checkRule.split(',');
+          minMax[0] = Number(minMax[0]);
+          minMax[1] = Number(minMax[1]);
+          if (data[rule[i].name] > minMax[1] || data[rule[i].name] < minMax[0]) {
+            this.error = rule[i].errorMsg;
+            return false;
+          }
+          break;
+        case 'betweenF':
+          var reg = /^-?[0-9][0-9]?.+[0-9]+$/;
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          var minMax = rule[i].checkRule.split(',');
+          minMax[0] = Number(minMax[0]);
+          minMax[1] = Number(minMax[1]);
+          if (data[rule[i].name] > minMax[1] || data[rule[i].name] < minMax[0]) {
+            this.error = rule[i].errorMsg;
+            return false;
+          }
+          break;
+        case 'same':
+          if (data[rule[i].name] != rule[i].checkRule) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'notsame':
+          if (data[rule[i].name] == rule[i].checkRule) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'email':
+          var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'phoneno':
+          var reg = /^1[0-9]{10,10}$/;
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'zipcode':
+          var reg = /^[0-9]{6}$/;
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'reg':
+          var reg = new RegExp(rule[i].checkRule);
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'in':
+          if (rule[i].checkRule.indexOf(data[rule[i].name]) == -1) {
+            this.error = rule[i].errorMsg;return false;
+          }
+          break;
+        case 'notnull':
+          if (data[rule[i].name] == null || data[rule[i].name].length < 1) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'samewith':
+          if (data[rule[i].name] != data[rule[i].checkRule]) {this.error = rule[i].errorMsg;return false;}
+          break;
+        case 'numbers':
+          var reg = new RegExp('^[0-9]{' + rule[i].checkRule + '}$');
+          if (!reg.test(data[rule[i].name])) {this.error = rule[i].errorMsg;return false;}
+          break;}
+
+    }
+    return true;
+  },
+  isNumber: function isNumber(checkVal) {
+    checkVal = Number(checkVal);
+    if (checkVal == NaN) {return false;}
+    return true;
+  } };
 
 /***/ }),
 

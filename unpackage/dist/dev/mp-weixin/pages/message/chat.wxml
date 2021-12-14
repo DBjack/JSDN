@@ -1,0 +1,1 @@
+<view><gui-im-message vue-id="fced1266-1" msgs="{{msgs}}" group="group1" userid="10000" bind:__l="__l"></gui-im-message><gui-im-input bind:chooseImage="__e" bind:sendText="__e" bind:sendVoice="__e" vue-id="fced1266-2" data-event-opts="{{[['^chooseImage',[['chooseImage']]],['^sendText',[['sendText']]],['^sendVoice',[['sendVoice']]]]}}" bind:__l="__l"></gui-im-input></view>

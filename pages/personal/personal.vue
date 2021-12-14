@@ -84,7 +84,7 @@
 			</view>
 		</view>
 		<view class="ucenter-line"></view>
-		<view hover-class="gui-tap">
+		<view hover-class="gui-tap" @click="logout">
 			<text class="gui-text-center gui-block-text gui-icons logoff gui-color-gray">&#xe62e; 退出登录</text>
 		</view>
 	</view>
@@ -102,7 +102,12 @@
 			}
 		},
 		methods: {
-
+			logout() {
+				console.log(111)
+				uni.navigateTo({
+					url: '/pages/login/login'
+				})
+			}
 		}
 	}
 </script>

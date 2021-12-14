@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-im-message": "/GraceUI5/components/gui-im-message",
+    "gui-im-input": "/GraceUI5/components/gui-im-input"
+  }
+}
