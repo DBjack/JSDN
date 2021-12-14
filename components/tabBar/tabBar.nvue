@@ -1,0 +1,104 @@
+<template>
+	<gui-page :customFooter="true"  
+	:footerSets="{height:150, zIndex:100, bg:'none'}">
+		<!-- 页面主体 -->
+		<view slot="gBody" class="gui-margin">
+			<!-- 页面主体切换内容, 为了页面代码更简单您也可以把内容封装为组件 -->
+			<view v-if="navCurrent == 0">
+				<text class="gui-text gui-text-center gui-color-gray" style="line-height:500rpx;">首页主体内容</text>
+			</view>
+			<view v-if="navCurrent == 1">
+				<text class="gui-text gui-text-center gui-color-gray" style="line-height:500rpx;">交流主体内容</text>
+			</view>
+			<view v-if="navCurrent == 2">
+				<text class="gui-text gui-text-center gui-color-gray" style="line-height:500rpx;">发布主体内容</text>
+			</view>
+			<view v-if="navCurrent == 3">
+				<text class="gui-text gui-text-center gui-color-gray" style="line-height:500rpx;">客服主体内容</text>
+			</view>
+			<view v-if="navCurrent == 4">
+				<text class="gui-text gui-text-center gui-color-gray" style="line-height:500rpx;">我的主体内容</text>
+			</view>
+		</view>
+		<!-- 底部插槽实现 -->
+		<!-- 边框使用 style 实现，可以根据自己项目实际情况修改 -->
+		<view slot="gFooter" class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-end" 
+		style="height:150rpx;">
+			<view class="gui-footer-icon-buttons" @tap="navChang(0)">
+				<text class="gui-footer-icon-buttons-icon gui-block-text gui-icons" 
+				:class="[navCurrent == 0 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">&#xe63b;</text>
+				<text class="gui-footer-icon-buttons-text gui-block-text gui-nav-bottom-color" 
+				:class="[navCurrent == 0 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">首页</text>
+			</view>
+			<view class="gui-footer-icon-buttons" @tap="navChang(1)">
+				<text class="gui-footer-icon-buttons-icon gui-block-text gui-icons" 
+				:class="[navCurrent == 1 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">&#xe6b8;</text>
+				<text class="gui-footer-icon-buttons-text gui-block-text gui-nav-bottom-color" 
+				:class="[navCurrent == 1 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">交流</text>
+			</view>
+			<!-- 凸出按钮占位  普通按钮 实现下面的 gui-footer-icon-buttons 即可 -->
+			<view class="gui-footer-icon-buttons"></view>
+			<view class="gui-footer-icon-buttons" @tap="navChang(3)">
+				<text class="gui-footer-icon-buttons-icon gui-block-text gui-icons" 
+				:class="[navCurrent == 3 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">&#xe626;</text>
+				<text class="gui-footer-icon-buttons-text gui-block-text" 
+				:class="[navCurrent == 3 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">客服</text>
+			</view>
+			<view class="gui-footer-icon-buttons" @tap="navChang(4)">
+				<text class="gui-footer-icon-buttons-icon gui-block-text gui-icons" 
+				:class="[navCurrent == 4 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">&#xe6fe;</text>
+				<text class="gui-footer-icon-buttons-text gui-block-text" 
+				:class="[navCurrent == 4 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">我的</text>
+			</view>
+			<!-- 使用定位方式实现凸出按钮 -->
+			<view class="gui-footer-buttons-ab" @tap="navChang(2)">
+				<text class="gui-footer-buttons-ab-icon gui-block-text gui-icons gui-bold" 
+				:class="[navCurrent == 2 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">&#xe60b;</text>
+				<text class="gui-footer-icon-buttons-text gui-block-text" 
+				:class="[navCurrent == 2 ? 'gui-nav-bottom-active-color' : 'gui-nav-bottom-color']">发动态</text>
+			</view>
+		</view>
+	</gui-page>
+</template>
+<script>
+export default {
+	data() {
+		return {
+			navCurrent: 0,
+			navs: [
+				{
+					title: '首页',
+					url: ''
+				},
+				{
+					title: '视频',
+					url: ''
+				},
+				{
+					title: '练习',
+					url: ''
+				},
+				{
+					title: '消息',
+					url: ''
+				},
+				{
+					title: '我的',
+					url: ''
+				},
+			]
+		}
+	},
+	methods: {
+		navChang : function (index) {
+			this.navCurrent = index;
+			this.$emit('navChange',index)
+		}
+	}
+}
+</script>
+<style>
+.gui-footer-icon-buttons{width:150rpx; height:100rpx; flex:1; padding:10rpx; position:relative; margin:0; background-color:#F8F8F8;}
+.gui-footer-buttons-ab{position:absolute; z-index:101; left:325rpx; top:0rpx; width:110rpx; height:150rpx;}
+.gui-footer-buttons-ab-icon{width:110rpx; height:110rpx; line-height:120rpx; text-align:center; font-size:68rpx; background-color:#F7F8FA; border-radius:100rpx;}
+</style>

@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "tab-bar": "/components/tabBar/tabBar",
+    "swiper": "/pages/swiper/swiper",
+    "scroll": "/pages/scroll/scroll",
+    "home": "/pages/home/home",
+    "personal": "/pages/personal/personal",
+    "message": "/pages/message/message"
+  }
+}

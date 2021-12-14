@@ -1,0 +1,34 @@
+<template>
+	<scroll-view class="gui-scroll-x gui-margin-top" :show-scrollbar="false" :scroll-x="true" 
+	style="width:690rpx;" :scroll-left="100">
+		<view class="gui-scroll-x-items gui-img-in">
+			<image class="gui-scroll-image" 
+			src="https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/7.png"></image>
+		</view>
+		<view class="gui-scroll-x-items gui-img-in gui-margin">
+			<image class="gui-scroll-image" 
+			src="https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/8.png"></image>
+		</view>
+		<view class="gui-scroll-x-items gui-img-in gui-margin">
+			<image class="gui-scroll-image" 
+			src="https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/9.png"></image>
+		</view>
+		<view class="gui-scroll-x-items gui-img-in">
+			<image class="gui-scroll-image" 
+			src="https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/10.png"></image>
+		</view>
+	</scroll-view>
+</template>
+<script>
+export default {
+	data() {
+		return { }
+	}
+}
+</script>
+<style>
+.gui-scroll-x-items{width:345rpx; height:115rpx;}
+.gui-scroll-image{width:345rpx; height:125rpx;}
+.gui-scroll-y-items{height:288rpx;}
+.gui-scroll-y-image{width:690rpx; height:288rpx;}
+</style>

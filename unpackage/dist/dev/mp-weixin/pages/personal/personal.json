@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-box-banner": "/GraceUI5/components/gui-box-banner"
+  }
+}

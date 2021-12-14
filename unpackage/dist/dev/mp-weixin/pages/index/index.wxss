@@ -1,0 +1,103 @@
+
+view,
+label,
+swiper-item,
+scroll-view {
+  display:flex;
+  flex-direction:column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+view,
+image,
+input,
+scroll-view,
+swiper,
+swiper-item,
+text,
+textarea,
+video {
+  position: relative;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+}
+swiper-item {
+  position: absolute;
+}
+button {
+  margin: 0;
+}
+
+
+view,
+label,
+swiper-item,
+scroll-view {
+  display:flex;
+  flex-direction:column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+view,
+image,
+input,
+scroll-view,
+swiper,
+swiper-item,
+text,
+textarea,
+video {
+  position: relative;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+}
+swiper-item {
+  position: absolute;
+}
+button {
+  margin: 0;
+}
+
+
+.gui-scroll-x-items{width:345rpx; height:115rpx;}
+.gui-scroll-image{width:345rpx; height:125rpx;}
+.gui-scroll-y-items{height:288rpx;}
+.gui-scroll-y-image{width:690rpx; height:288rpx;}
+
+
+.header {
+	padding: 15rpx 30rpx;
+	height: 100rpx;
+}
+
+
+.my-list{margin:30rpx 0; padding:0 30rpx;}
+
+
+.ucenter-face {
+	width: 100rpx;
+	height: 100rpx;
+}
+.ucenter-face-image {
+	width: 100rpx;
+	height: 100rpx;
+}
+.ucenter-line {
+	height: 20rpx;
+	background-color: #F6F7F8;
+	margin: 16rpx 0;
+}
+.logoff {
+	line-height: 88rpx;
+	font-size: 28rpx;
+}
+.gui-list-title-text {
+	line-height: 60rpx;
+}
+

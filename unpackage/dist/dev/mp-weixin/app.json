@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/swiper/swiper",
+    "pages/scroll/scroll",
+    "pages/home/topTab",
+    "pages/home/home",
+    "pages/home/articleItem",
+    "pages/personal/personal",
+    "pages/message/message"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

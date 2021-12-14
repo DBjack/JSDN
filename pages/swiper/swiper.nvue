@@ -1,0 +1,74 @@
+<!-- 注意 : nvue 底层原因不支持缩放效果， 请设置 :spacing="0" :padding="0" 属性 -->
+<template>
+	<view class="gui-margin-top">
+		<gui-swiper :swiperItems="swiperItems" :spacing="0" :padding="0" 
+		:width="750" :height="330" :indicatorActiveWidth="38"></gui-swiper>
+	</view>
+</template>
+
+<script>
+export default{
+	data() {
+		return {
+			swiperItems : [
+				{
+					img : 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/1.png',
+					url : '',
+					title:"测试标题 001",
+					opentype : 'navigate'
+				},
+				{
+					img : 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/2.png',
+					url : '',
+					title:"测试标题 002",
+					opentype : 'navigate'
+				},
+				{
+					img : 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/3.png',
+					url : '',
+					title:"测试标题很长很长很长很长很长很长很长很长很长很长很长很长很长很长",
+					opentype : 'navigate'
+				},
+			],
+			swiperItems2 : []
+		}
+	},
+	methods:{
+		swiperchange : function(e){
+			console.log(e);
+		},
+		taped : function(e){
+			uni.showToast({
+				title:"您点击了第 "+e+" 个项目", icon:"none"
+			});
+		}
+	},
+	onLoad:function(){
+		// 模拟api加载数据
+		setTimeout(()=>{
+			this.swiperItems2 = [
+				{
+					img : 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/1.png',
+					url : '',
+					title:"测试标题很长很长很长很长很长很长很长很长很长很长很长很长很长很长",
+					opentype : 'click'
+				},
+				{
+					img : 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/2.png',
+					url : '',
+					title:"测试标题04",
+					opentype : 'click'
+				},
+				{
+					img : 'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/3.png',
+					url : '',
+					title:"测试标题05",
+					opentype : 'click'
+				}
+			]
+		}, 1000)
+	}
+}
+</script>
+<style>
+</style>

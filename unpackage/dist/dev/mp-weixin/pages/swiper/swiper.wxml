@@ -1,0 +1,1 @@
+<view class="gui-margin-top"><gui-swiper vue-id="36533a00-1" swiperItems="{{swiperItems}}" spacing="{{0}}" padding="{{0}}" width="{{750}}" height="{{330}}" indicatorActiveWidth="{{38}}" bind:__l="__l"></gui-swiper></view>

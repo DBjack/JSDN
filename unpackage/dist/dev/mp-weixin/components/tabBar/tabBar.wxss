@@ -1,0 +1,5 @@
+
+.gui-footer-icon-buttons{width:150rpx; height:100rpx; flex:1; padding:10rpx; position:relative; margin:0; background-color:#F8F8F8;}
+.gui-footer-buttons-ab{position:absolute; z-index:101; left:325rpx; top:0rpx; width:110rpx; height:150rpx;}
+.gui-footer-buttons-ab-icon{width:110rpx; height:110rpx; line-height:120rpx; text-align:center; font-size:68rpx; background-color:#F7F8FA; border-radius:100rpx;}
+

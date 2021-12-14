@@ -1,0 +1,10 @@
+
+.gui-article-list.data-v-53cd6048{}
+.gui-article-list-item.data-v-53cd6048{margin-bottom:30rpx; padding:20rpx 30rpx;}
+.gui-article-list-title.data-v-53cd6048{overflow:hidden;}
+.gui-article-list-img1.data-v-53cd6048{margin-top:22rpx;}
+.gui-article-list-img2-in.data-v-53cd6048{width:335rpx; height:200rpx; margin-top:22rpx;}
+.gui-article-list-img3-in.data-v-53cd6048{width:220rpx; height:150rpx; margin-top:22rpx;}
+.gui-article-list-footer.data-v-53cd6048{margin-top:20rpx;}
+.gui-article-list-footer-items.data-v-53cd6048{width:220rpx; height:50rpx; line-height:50rpx; font-size:26rpx; overflow:hidden;}
+
